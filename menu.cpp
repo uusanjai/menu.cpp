@@ -6,11 +6,11 @@ using namespace std;
 void dMenu(){
 system("cls");
 cout<<"Aplikasi Tampilan Menu"<<"\n";       
-cout<<"1. Menu Pertama"<<"\n";            
-cout<<"2. Menu Kedua"<<"\n";            
-cout<<"3. Menu Ketiga"<<"\n";           
-cout<<"4. Menu Keempat"<<"\n";            
-cout<<"5. Exit"<<"\n";           
+cout<<"1. Menu Pertama"<<"\n";    //input         
+cout<<"2. Menu Kedua"<<"\n";          //output  
+cout<<"3. Menu Ketiga"<<"\n";          //sorting 
+cout<<"4. Menu Keempat"<<"\n";          //informasi  
+cout<<"5. Exit"<<"\n";            //exit
 cout<<"Masukan angka :";        
 
 }
@@ -18,6 +18,11 @@ cout<<"Masukan angka :";
 void mPertama(string pesan){
 system("cls");
 cout<<"hallo saya menu "<<pesan;
+getch();
+}
+void info(string pesan){
+system("cls");
+cout<<"hay gean"<<pesan;
 getch();
 }
 
@@ -43,7 +48,7 @@ do
     /* code */
     break;  
    case '4':
-    mPertama("ke- empat");
+    info();
     /* code */
     break;  
   case '5':
