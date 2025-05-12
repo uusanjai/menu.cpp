@@ -18,7 +18,7 @@ void insertion_sort(int data[], int n) {
 
 void masukkanarray(int data[], int &n) {
     system("cls");
-    cout << "Masukkan jumlah elemen: ";
+    cout << "Masukkan jumlah array : ";
     cin >> n;
     for (int i = 0; i < n; i++) {
         cout << "Elemen ke-" << i + 1 << ": ";
