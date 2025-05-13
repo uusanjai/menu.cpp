@@ -2,17 +2,17 @@
 #include <conio.h>
 using namespace std;
 
-void insertion_sort(int data[], int n) {
+void insertion_sort(int data[], int n, bool ascending) {
     int temp, j;
     for (int i = 1; i < n; i++) {
         temp = data[i];
         j = i - 1;
-        while (j >= 0 && data[j] > temp) {
+        while (j >= 0 && ((ascending && data[j] > temp) || (!ascending && data[j] < temp))) {
             data[j + 1] = data[j];
             j--;
         }
         data[j + 1] = temp;
-    } 
+    }
 }
 
 
@@ -28,7 +28,7 @@ void masukkanarray(int data[], int &n) {
 }
 
 
-
+ 
 void dMenu(){
 
     system("cls");
@@ -56,6 +56,29 @@ void info() {
     getch();
 }
 
+void urutkanArray(int data[], int n) {
+    system("cls");
+    char sortPilihan;
+    cout << "Pilih urutan pengurutan:\n";
+    cout << "a. Ascending\n";
+    cout << "b. Descending\n";
+    cout << "Pilihan (a/b): ";
+    sortPilihan = getch();
+
+    if (sortPilihan == 'a' || sortPilihan == 'A') {
+        insertion_sort(data, n, true);
+        cout << "\nArray telah diurutkan secara ASCENDING.\n";
+    } else if (sortPilihan == 'b' || sortPilihan == 'B') {
+        insertion_sort(data, n, false);
+        cout << "\nArray telah diurutkan secara DESCENDING.\n";
+    } else {
+        cout << "\nPilihan tidak valid!\n";
+    }
+
+    tampilkanArray(data, n);
+}
+
+
 int main() {
     int data[100], n = 0;
     char pl;
@@ -74,11 +97,10 @@ int main() {
                 tampilkanArray(data, n);
                 break;
             case '3':
-                system("cls");
-                insertion_sort(data, n);
-                cout << "Array telah diurutkan." << endl;
-                tampilkanArray(data, n);
-                break;
+            system("cls");
+            urutkanArray(data, n);
+            break;
+        
             case '4':
                 info();
                 break;
@@ -94,5 +116,6 @@ int main() {
                 break;
         }
     } while (pl != '5');
+
     return 0;
 }
